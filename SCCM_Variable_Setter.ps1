@@ -1,6 +1,7 @@
 ﻿<#
 /////created by b4st11 10.05.2019
 /////last modified by b4st11 14.05.2019
+https://github.com/b4st11/SCCM_Variable_Setter
 #>
 
 param (
