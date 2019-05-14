@@ -251,6 +251,7 @@ catch{
 $btnCancel.Add_Click({$form.Close(); exit})
 $btnOK.Add_Click({main})
 
-#Show Form
+#Show Form and set it to the foreground.
+$Form.TopMost = $true
 $Form.ShowDialog() | out-null
 
