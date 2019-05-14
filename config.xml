@@ -1,0 +1,42 @@
+<!--
+- Values need to be seperated by XML Elements
+		<Value>DE</Value>
+		<Value>EN</Value>
+		<Value>PL</Value>
+		<Value>CZ</Value>
+		<Value>IT</Value>
+		<Value>DK</Value>
+		<Value>SE</Value>
+- Values can be set on TextBoxes or Comboboxes
+- Supported are:
+<Title>Contoso</Title>
+<TextBox Name="Computername" Label="Computername: " TSVariable="OSDComputername">
+<ComboBox Name="OSLang" Label="OS Language: " TSVariable="SCCMGui_OSLang"/>
+<CheckBox Name="iTunes" Label="Apple iTunes: " TSVariable="SCCMGui_iTunes"/>
+-->
+
+<Config>
+	<Title>Contoso</Title>
+	<TextBox Name="Computername" Label="Computername: " TSVariable="OSDComputername">
+		<Value>Computename</Value>
+	</TextBox>
+	<ComboBox Name="OSLang" Label="OS Language: " TSVariable="SCCMGui_OSLang">
+		<Value>EN</Value>
+		<Value>DE</Value>
+	</ComboBox>
+	<ComboBox Name="OfficeLang" Label="Office Language: " TSVariable="SCCMGui_OfficeLang">
+		<Value>DE</Value>
+		<Value>EN</Value>
+		<Value>PL</Value>
+		<Value>CZ</Value>
+		<Value>IT</Value>
+		<Value>DK</Value>
+		<Value>SE</Value>
+	</ComboBox>
+	<ComboBox Name="OSVersion" Label="OS Version: " TSVariable="SCCMGui_OSVersion">
+		<Value>Win10</Value>
+		<Value>Win7</Value>
+	</ComboBox>
+	<CheckBox Name="photoshop" Label="Adobe Photoshop: " TSVariable="SCCMGui_photoshop"/>
+	<CheckBox Name="iTunes" Label="Apple iTunes: " TSVariable="SCCMGui_iTunes"/>
+</Config>
