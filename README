@@ -1,0 +1,6 @@
+This is a small Powershell Script to set Within a SCCM Task Sequence TS Variables.
+The GUI can contain Texboxes, Comboboxes and Checkboxes.
+
+The TS Variable Name, the amount and kind of a element can be set in one or more config files.
+
+The logo need to be named "logo.png", but is optional.
