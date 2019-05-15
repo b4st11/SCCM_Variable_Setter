@@ -1,4 +1,4 @@
-This is a small Powershell Script to set Within a SCCM Task Sequence TS Variables.
+This is a small Powershell Script that sets Within a SCCM Task Sequence TS Variables.
 
 Features:
 - With the parameter '-Config' you can call different config files.
