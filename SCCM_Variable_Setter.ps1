@@ -1,7 +1,6 @@
 ﻿<#
 /////created by b4st11 10.05.2019
-/////last modified by b4st11 14.05.2019
-https://github.com/b4st11/SCCM_Variable_Setter
+/////last modified by b4st11 15.05.2019
 #>
 
 param (
@@ -72,18 +71,33 @@ function main() {
     Foreach ($box in $TextBoxes) {
         $TSVariable = (Get-Variable ("_" + [String](Get-Variable $box.Name | select -ExpandProperty Name))).Value
         Write-host "Name: " $box.Name " Wert: " $Form.FindName($box.Name).Text " TSVariable: " $TSVariable
-        $tsenv.Value($TSVariable) = $Form.FindName($box.Name).Text
+        try{
+            $tsenv.Value($TSVariable) = $Form.FindName($box.Name).Text
+        }
+        catch {
+            Write-Host "could not fill TS Variable with " $Form.FindName($box.Name).Text
+        }
     }
 
     Foreach ($box in $CheckBoxes) {
         $TSVariable = (Get-Variable ("_" + [String](Get-Variable $box.Name | select -ExpandProperty Name))).Value
         Write-host "Name: " $box.Name " Wert: " $Form.FindName($box.Name).IsChecked " TSVariable: " $TSVariable
-        $tsenv.Value($TSVariable) = $Form.FindName($box.Name).IsChecked
+        try{
+            $tsenv.Value($TSVariable) = $Form.FindName($box.Name).IsChecked
+        }
+        catch {
+            Write-Host "could not fill TS Variable with " $Form.FindName($box.Name).IsChecked
+        }
     }
     Foreach ($box in $ComboBoxes) {
         $TSVariable = (Get-Variable ("_" + [String](Get-Variable $box.Name | select -ExpandProperty Name))).Value
         Write-host "Name: " $box.Name " Wert: " $Form.FindName($box.Name).Text " TSVariable: " $TSVariable
-        $tsenv.Value($TSVariable) = $Form.FindName($box.Name).Text
+        try{
+            $tsenv.Value($TSVariable) = $Form.FindName($box.Name).Text
+        }
+        catch {
+            Write-Host "could not fill TS Variable with " $Form.FindName($box.Name).Text
+        }
     }
 
     $form.Close()
@@ -236,6 +250,7 @@ try{
 }
 catch {
     Write-Host "Could not create SCCM TS Object."
+    $tsenv = $false
     #exit
 }
 
@@ -251,8 +266,8 @@ catch{
 #Create Actions for Buttons
 $btnCancel.Add_Click({$form.Close(); exit})
 $btnOK.Add_Click({main})
+$btnOK.IsDefault = $true #To listen on 'enter' in the whole Form
 
 #Show Form and set it to the foreground.
 $Form.TopMost = $true
 $Form.ShowDialog() | out-null
-
